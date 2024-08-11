@@ -15,7 +15,7 @@ const Navbar: React.FC<Props> = ({ currentUser }: Props) => {
   }
 
   return (
-    <div className="shadow-md px-8 z-50 sticky top-0 backdrop-blur-3xl bg-red-600/80">
+    <div className="shadow-md px-8 z-50 sticky top-0 backdrop-blur-3xl dark:bg-red-600/80 bg-red-700/95">
       <div className="flex-between p-4">
         <div className="flex items-center gap-3 text-xl font-semibold">
           <div className="flex items-center gap-3">
@@ -25,7 +25,12 @@ const Navbar: React.FC<Props> = ({ currentUser }: Props) => {
           </div>
         </div>
         <div className="flex gap-8 items-center">
-          <h1 className="text-sm font-medium px-3 py-1.5 rounded-lg bg-gray-300 text-gray-950 dark:bg-gray-950 dark:text-white">
+          <h1
+            className={`text-sm max-sm:text-xs font-medium px-3 py-1.5 rounded-lg bg-gray-200 text-gray-950 dark:bg-gray-950 ${
+              currentUser?.role === 'ADMIN' &&
+              ' hover:bg-gray-300 hover:dark:bg-gray-800'
+            } dark:text-white`}
+          >
             {currentUser?.role == 'ADMIN' ? (
               <Link href="/admin/dashboard">Admin Dashboard</Link>
             ) : (

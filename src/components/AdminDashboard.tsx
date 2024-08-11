@@ -29,7 +29,7 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
   const [time, setTime] = useState(5)
   const router = useRouter()
 
-  if (currentUser.role !== 'ADMIN') {
+  if (currentUser?.role !== 'ADMIN') {
     router.push('/')
   }
   useEffect(() => {

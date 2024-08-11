@@ -17,7 +17,7 @@ model User {
   name     String
   username String  @unique
   email    String  @unique
-  image    String?
+  image    String? @default("https://i.postimg.cc/rshS22s4/image.png")
   password String?
 
   role Role @default(USER)

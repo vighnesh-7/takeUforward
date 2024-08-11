@@ -56,14 +56,14 @@ const Flashcard = ({
           </span>
           <span
             className={`px-2 py-1 rounded-full text-xs text-white ${getDifficultyColor(
-              card.difficulty
+              card?.difficulty
             )}`}
           >
-            Difficulty: {card.difficulty}
+            Difficulty: {card?.difficulty}
           </span>
         </div>
         <div
-          className={`relative w-full aspect-[3/2] cursor-pointer transition-transform duration-500 transform perspective-1000 rounded-xl ${
+          className={`relative w-full aspect-[3/2] cursor-pointer transition-transform duration-500 transform perspective-1000 rounded-xl  ${
             isFlipped ? 'rotate-y-180' : ''
           }`}
           onClick={handleFlip}
@@ -74,7 +74,7 @@ const Flashcard = ({
         >
           <div>
             {isFlipped ? (
-              <div className="absolute w-full h-full frontface-hidden bg-white rounded-xl shadow-lg flex flex-col items-center justify-center p-6 rotate-y-180">
+              <div className="absolute w-full h-full frontface-hidden bg-white hover:bg-gray-100 rounded-xl shadow-lg flex flex-col items-center justify-center p-6 rotate-y-180">
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-800 mb-4">
                     Answer:
@@ -85,20 +85,20 @@ const Flashcard = ({
                 </div>
 
                 <div className="text-sm text-gray-500 mt-16 w-full flex flex-row items-center justify-start">
-                  {card.tags.map((tag: string, index: number) => {
+                  {card?.tags.map((tag: string, index: number) => {
                     return (
                       <span
                         key={index}
-                        className="px-2.5 py-1.5 bg-gray-800 text-gray-50 rounded-xl text-xs mr-2.5 font-semibold"
+                        className="px-2.5 py-1.5 bg-gray-700 cursor-default text-gray-50 rounded-lg text-xs mr-3 font-semibold"
                       >
-                        {tag}
+                        #{tag}
                       </span>
                     )
                   })}
                 </div>
               </div>
             ) : (
-              <div className="absolute w-full h-full backface-hidden bg-white rounded-xl shadow-lg flex items-center justify-center p-8 px-16">
+              <div className="absolute w-full h-full backface-hidden bg-white hover:bg-gray-100 rounded-xl shadow-lg flex items-center justify-center p-8 px-16">
                 <div>
                   <h2 className="text-2xl font-semibold text-gray-800 mb-4">
                     Question:
@@ -110,7 +110,7 @@ const Flashcard = ({
               </div>
             )}
             <p
-              className={`absolute bottom-4 right-4 px-2.5 py-1.5 font-semibold bg-gray-700 text-white rounded-full text-xs transition-opacity duration-300 ${
+              className={`absolute bottom-4 right-4 px-2.5 py-1.5 font-[400] text-gray-700 rounded-full text-sm mb-3 transition-opacity duration-300 ${
                 isFlipped ? 'opacity-0' : 'opacity-100'
               }`}
             >
