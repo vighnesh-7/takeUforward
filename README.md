@@ -14,8 +14,7 @@
    adminpassword
    ```
 
-
-
+<br><br>
 
 
 ## Test credentials for User
@@ -30,7 +29,7 @@
    userpassword
    ```
 
-
+<br><br><br><br>
 
 ## 🚀 Installation
 
@@ -46,9 +45,9 @@
    ```
 
 3. **Create a `.env` file:**
-   Copy the `.env.example` file to `.env` and fill in the required values:
+   Copy the `.env.sample` file to `.env` and fill in the required values:
    ```bash
-   cp .env.example .env
+   cp .env.sample .env
    ```
 
 4. **Run the application:**
@@ -57,13 +56,14 @@
    ```
 
 5. **Open your browser:**
-   Visit `http://localhost:3000/`
+   Visit [`http://localhost:3000/`](http://localhost:3000/)
 
 
 ## 🌟 Features
 
-- **User Authentication:** Secure login with Google OAuth.
-- **Admin Dashboard:** Create Flash cards, Ai generated Flash cards.
+- **User Authentication:** Secure signup with Google OAuth and manual signin.
+- **Admin Dashboard:** Create Flash cards or use Ai generated Flashcard generation with all CRUD Operations.
+- **Personalization:** Dark/Light mode and profile management
 
 ## 📜 Environment Variables
 
