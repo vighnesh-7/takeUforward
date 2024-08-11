@@ -85,9 +85,12 @@ const Flashcard = ({
                 </div>
 
                 <div className="text-sm text-gray-500 mt-16 w-full flex flex-row items-center justify-start">
-                  {card.tags.map((tag: string) => {
+                  {card.tags.map((tag: string, index: number) => {
                     return (
-                      <span className="px-2.5 py-1.5 bg-gray-800 text-gray-50 rounded-xl text-xs mr-2.5 font-semibold">
+                      <span
+                        key={index}
+                        className="px-2.5 py-1.5 bg-gray-800 text-gray-50 rounded-xl text-xs mr-2.5 font-semibold"
+                      >
                         {tag}
                       </span>
                     )
