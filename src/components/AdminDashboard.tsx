@@ -7,6 +7,7 @@ import axios from 'axios'
 import { Toaster, toast } from 'react-hot-toast'
 import { FaSpinner } from 'react-icons/fa'
 import Loader from './Loader'
+import { SiGooglegemini } from 'react-icons/si'
 
 interface Props {
   currentUser: User
@@ -22,29 +23,17 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
   })
   const [editingCard, setEditingCard] = useState<any>(null)
   const [currentPlaceholder, setCurrentPlaceholder] = useState(0)
-  const [placeholderVisible, setPlaceholderVisible] = useState(true)
   const [isLoading, setIsLoading] = useState(true)
   const [isCardAdded, setIsCardAdded] = useState(false)
   const [isGenerating, setIsGenerating] = useState(false)
   const [time, setTime] = useState(5)
   const router = useRouter()
 
+  if (currentUser.role !== 'ADMIN') {
+    router.push('/')
+  }
   useEffect(() => {
-    if (currentUser.role !== 'ADMIN') {
-      router.push('/')
-    }
-
     fetchFlashcards()
-
-    const placeholderInterval = setInterval(() => {
-      setPlaceholderVisible(false)
-      setTimeout(() => {
-        setCurrentPlaceholder((prev) => (prev + 1) % placeholders.length)
-        setPlaceholderVisible(true)
-      }, 300)
-    }, 3000)
-
-    return () => clearInterval(placeholderInterval)
   }, [])
 
   const fetchFlashcards = async () => {
@@ -198,14 +187,6 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
     )
   }
 
-  const placeholders = [
-    'What is the difference between an array and a linked list?',
-    'What is a stack and how is it implemented?',
-    'Name a Javascript method to stringify a json?',
-    'What is the difference between quicksort and mergesort?',
-    'How to assemble your own PC?',
-  ]
-
   if (currentUser?.role !== 'ADMIN') {
     return (
       <div className="flex-center h-screen">
@@ -231,9 +212,9 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
               <button
                 disabled={isGenerating}
                 onClick={handleGenerate}
-                className="bg-blue-500 text-white font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-5"
+                className="bg-blue-500 flex-center text-white font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-5"
               >
-                Generate using AI
+                <SiGooglegemini className="h-5 w-5  me-1 " /> Generate using AI
               </button>
             ) : (
               <span className="bg-blue-500 text-white font-semibold flex-center px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-5">
@@ -245,7 +226,7 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
           <form onSubmit={handleAddCard} className="space-y-4">
             <input
               type="text"
-              placeholder={placeholders[currentPlaceholder]}
+              placeholder='Question (e.g. "What is the difference between an array and a linked list?",)'
               value={newCard.question}
               onChange={(e) =>
                 setNewCard({ ...newCard, question: e.target.value })
