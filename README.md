@@ -15,7 +15,7 @@
    ```
 <br>
 
-## Test credentials for User
+##  Test credentials for User
 
  **Username :**
    ```bash
@@ -63,17 +63,17 @@
 - **Personalization:** Dark/Light mode and profile management
 
 
-## Profile Management
+## 🛠️ Profile Management
    1. Any new User has to do Google Signin at first for the initialization of bearer token.
    2. Then Under the Profile section, user can create credentials like password and username.
    3. If a user forgets their password, they must sign in using Google OAuth, navigate to their profile, and reset their password by erasing the old one.
 
 
-## 📜 Environment Variables
+## 📄 Environment Variables
 
 | Variable              | Description                                       
 |-----------------------|-------------------------------------
-| `DATABASE_URL`        | PostgreSQL connection string                     
+| `DATABASE_URL`        | Database connection string                     
 | `NEXTAUTH_GOOGLE_ID`  | Google OAuth Client ID                            
 | `NEXTAUTH_GOOGLE_SECRET` | Google OAuth Client Secret                     
 | `NEXTAUTH_SECRET`     | Secret for NextAuth.js                           
