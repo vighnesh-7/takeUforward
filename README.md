@@ -6,7 +6,7 @@
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/vighnesh-7/takeuforward
-   cd your-repo-name
+   cd takeuforward
    ```
 
 2. **Install dependencies:**
