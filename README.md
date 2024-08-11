@@ -13,9 +13,7 @@
    ```bash
    adminpassword
    ```
-
 <br>
-
 
 ## Test credentials for User
 
@@ -28,7 +26,6 @@
    ```bash
    userpassword
    ```
-
 <br><br>
 
 ## 🚀 Installation
@@ -61,9 +58,16 @@
 
 ## 🌟 Features
 
-- **User Authentication:** Secure signup with Google OAuth and manual signin.
-- **Admin Dashboard:** Create Flash cards or use Ai generated Flashcard generation with all CRUD operations.
+- **User Authentication:** Secure signup/signin with Google OAuth using NextAuth and manual signin.
+- **Admin Dashboard:** Create Flash cards or use Ai Flash card generation with all CRUD operations.
 - **Personalization:** Dark/Light mode and profile management
+
+
+## Profile Management
+   1. Any new User has to do Google Signin at first for the initialization of bearer token.
+   2. Then Under the Profile section, user can create credentials like password and username.
+   3. If a user forgets their password, they must sign in using Google OAuth, navigate to their profile, and reset their password by erasing the old one.
+
 
 ## 📜 Environment Variables
 
