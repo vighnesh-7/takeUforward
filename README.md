@@ -14,7 +14,7 @@
    adminpassword
    ```
 
-<br><br>
+<br>
 
 
 ## Test credentials for User
@@ -29,7 +29,7 @@
    userpassword
    ```
 
-<br><br><br><br>
+<br><br>
 
 ## 🚀 Installation
 
@@ -62,7 +62,7 @@
 ## 🌟 Features
 
 - **User Authentication:** Secure signup with Google OAuth and manual signin.
-- **Admin Dashboard:** Create Flash cards or use Ai generated Flashcard generation with all CRUD Operations.
+- **Admin Dashboard:** Create Flash cards or use Ai generated Flashcard generation with all CRUD operations.
 - **Personalization:** Dark/Light mode and profile management
 
 ## 📜 Environment Variables
