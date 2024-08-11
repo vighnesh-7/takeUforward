@@ -7,12 +7,12 @@ import { auth } from "@/auth";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Mindly",
-  description: "Tutly",
+  title: 'TakeUForward',
+  description: 'TakeUForward',
   icons: {
-    icon: "/images/logo2.png",
+    icon: '/images/logo2.png',
   },
-};
+}
 
 export default async function RootLayout({
   children,
