@@ -1,6 +1,34 @@
 
 # takeuforward Assignment
 
+
+## Test credentials for Admin
+
+ **Username :**
+   ```bash
+   admin2
+   ```
+
+ **Password :**
+   ```bash
+   adminpassword
+   ```
+
+
+## Test credentials for User
+
+ **Username :**
+   ```bash
+   vvlegend33
+   ```
+
+ **Password :**
+   ```bash
+   userpassword
+   ```
+
+
+
 ## 🚀 Installation
 
 1. **Clone the repository:**
