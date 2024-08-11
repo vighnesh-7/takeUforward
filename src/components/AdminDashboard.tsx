@@ -200,11 +200,11 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
   return (
     <>
       <div className="container mx-auto p-4">
-        <h1 className="text-3xl font-bold mb-4">Admin Dashboard</h1>
+        <h1 className="text-2xl md:text-3xl font-bold mb-4">Admin Dashboard</h1>
 
-        <div className="mb-8 bg-white dark:bg-slate-800 shadow-md rounded-lg p-10">
-          <div className={`flex justify-between items-center space-5`}>
-            <h2 className="text-xl font-semibold mb-4 text-black dark:text-gray-100">
+        <div className="mb-8 bg-white dark:bg-slate-800 shadow-md rounded-lg p-4 md:p-10">
+          <div className="flex flex-col md:flex-row justify-between items-start md:items-center space-y-4 md:space-y-0 md:space-x-5 mb-4">
+            <h2 className="text-lg md:text-xl font-semibold text-black dark:text-gray-100">
               Add New Flashcard
             </h2>
 
@@ -212,12 +212,12 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
               <button
                 disabled={isGenerating}
                 onClick={handleGenerate}
-                className="bg-blue-500 flex-center text-white font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-5"
+                className="w-full md:w-auto bg-blue-500 flex justify-center items-center text-white font-semibold px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               >
-                <SiGooglegemini className="h-5 w-5  me-1 " /> Generate using AI
+                <SiGooglegemini className="h-5 w-5 mr-2" /> Generate using AI
               </button>
             ) : (
-              <span className="bg-blue-500 text-white font-semibold flex-center px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50 mb-5">
+              <span className="w-full md:w-auto bg-blue-500 text-white font-semibold flex justify-center items-center px-4 py-2 rounded-full">
                 Please wait {time} seconds... &nbsp;
                 <FaSpinner className="animate-spin" />
               </span>
@@ -258,11 +258,11 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
               placeholder="Tags (comma-separated)"
               value={newCard.tags}
               onChange={(e) => setNewCard({ ...newCard, tags: e.target.value })}
-              className="w-full p-2 border rounded focus:border-blue-500 focus:ring focus:ring-blue-200 mb-8"
+              className="w-full p-2 border rounded focus:border-blue-500 focus:ring focus:ring-blue-200 mb-4 md:mb-8"
             />
             <button
               type="submit"
-              className="bg-blue-500 text-white font-semibold  px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
+              className="w-full md:w-auto bg-blue-500 text-white font-semibold px-5 py-2 rounded-full hover:bg-blue-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50"
               disabled={isCardAdded}
             >
               {isCardAdded ? (
@@ -273,8 +273,8 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
           </form>
         </div>
 
-        <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-6">
-          <h2 className="text-xl font-semibold mb-4">Flashcards</h2>
+        <div className="bg-white dark:bg-slate-800 shadow-md rounded-lg p-4 md:p-6">
+          <h2 className="text-lg md:text-xl font-semibold mb-4">Flashcards</h2>
           {isLoading ? (
             <div className="flex justify-center items-center h-32">
               <Loader />
@@ -283,7 +283,7 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
             flashcards.map((card: any) => (
               <div
                 key={card.id}
-                className="border p-4 mb-4 rounded-lg hover:shadow-lg transition duration-300 ease-in-out"
+                className="border max-sm:mb-12 p-3 md:p-4 mb-4 rounded-lg hover:shadow-lg transition duration-300 ease-in-out"
               >
                 {editingCard && editingCard.id === card.id ? (
                   <form onSubmit={handleEditCard} className="space-y-2">
@@ -335,10 +335,10 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
                       }
                       className="w-full p-2 border rounded focus:border-blue-500 focus:ring focus:ring-blue-200"
                     />
-                    <div className="flex space-x-2">
+                    <div className="flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
                       <button
                         type="submit"
-                        className="bg-emerald-600 text-white font-semibold px-4 py-1.5 rounded-full hover:bg-emerald-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50"
+                        className="w-full md:w-auto bg-emerald-600 text-white font-semibold px-4 py-1.5 rounded-full hover:bg-emerald-700 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:ring-opacity-50"
                         disabled={isLoading}
                       >
                         {isLoading ? (
@@ -348,7 +348,7 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
                       </button>
                       <button
                         onClick={() => setEditingCard(null)}
-                        className="bg-gray-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-gray-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
+                        className="w-full md:w-auto bg-gray-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-gray-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-gray-500 focus:ring-opacity-50"
                       >
                         Cancel
                       </button>
@@ -360,16 +360,16 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
                     <p className="mt-2">Answer: {card.answer}</p>
                     <p className="mt-2">Difficulty: {card.difficulty}</p>
                     <p className="mt-2">Tags: {card.tags.join(', ')}</p>
-                    <div className="mt-4 flex space-x-2">
+                    <div className="mt-4 flex flex-col md:flex-row space-y-2 md:space-y-0 md:space-x-2">
                       <button
                         onClick={() => setEditingCard(card)}
-                        className="bg-yellow-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-yellow-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
+                        className="w-full md:w-auto bg-yellow-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-yellow-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-yellow-500 focus:ring-opacity-50"
                       >
                         Edit
                       </button>
                       <button
                         onClick={() => handleDeleteCard(card.id)}
-                        className="bg-red-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
+                        className="w-full md:w-auto bg-red-500 font-semibold text-white px-4 py-1.5 rounded-full hover:bg-red-600 transition duration-300 ease-in-out transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-red-500 focus:ring-opacity-50"
                       >
                         Delete
                       </button>
@@ -383,7 +383,6 @@ const AdminDashboard: React.FC<Props> = ({ currentUser }: Props) => {
           )}
         </div>
       </div>
-      <Toaster position="bottom-right" />
     </>
   )
 }

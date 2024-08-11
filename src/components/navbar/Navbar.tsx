@@ -3,6 +3,7 @@ import UserProfile from './UserProfile'
 import ThemeSwitch from './ThemeSwitch'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import { HiMiniHome } from 'react-icons/hi2'
 import { User } from '@/types/user'
 interface Props {
   currentUser: User
@@ -17,10 +18,13 @@ const Navbar: React.FC<Props> = ({ currentUser }: Props) => {
   return (
     <div className="shadow-md px-8 z-50 sticky top-0 backdrop-blur-3xl dark:bg-red-600/80 bg-red-700/95">
       <div className="flex-between p-4">
-        <div className="flex items-center gap-3 text-xl font-semibold">
-          <div className="flex items-center gap-3">
+        <div className="flex items-center gap-3 text-xl font-semibold relative">
+          <div className="flex items-center gap-3 ">
             <Link href="/" className="hidden md:flex">
               takeUforward
+            </Link>
+            <Link href="/" className=" md:hidden absolute -top-4 -left-10">
+              <HiMiniHome className="dark:text-black h-7 w-7" />
             </Link>
           </div>
         </div>
